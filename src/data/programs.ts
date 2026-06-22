@@ -1,0 +1,9 @@
+export type Program = { id:string; name:string; duration:string; difficulty:"Beginner"|"Intermediate"|"Advanced"; weeklySessions:number; focus:string; description:string; accent:string; };
+export const programs: Program[] = [
+  {id:"beginner-strength-builder",name:"Beginner Strength Builder",duration:"8 weeks",difficulty:"Beginner",weeklySessions:3,focus:"Strength foundation",description:"Build core strength using simple compound lifts and guided weekly progression.",accent:"from-viva-green to-viva-cyan"},
+  {id:"fat-loss-starter",name:"Fat Loss Starter",duration:"6 weeks",difficulty:"Beginner",weeklySessions:4,focus:"Fat loss and conditioning",description:"Mix strength circuits, cardio intervals, and habit tracking for consistent fat loss.",accent:"from-viva-cyan to-viva-lime"},
+  {id:"muscle-gain-program",name:"Muscle Gain Program",duration:"12 weeks",difficulty:"Intermediate",weeklySessions:5,focus:"Hypertrophy",description:"Progressive volume training for chest, back, legs, shoulders, arms, and core.",accent:"from-viva-lime to-viva-green"},
+  {id:"home-workout-plan",name:"Home Workout Plan",duration:"4 weeks",difficulty:"Beginner",weeklySessions:4,focus:"No-equipment fitness",description:"Train at home with bodyweight workouts, mobility blocks, and short finishers.",accent:"from-viva-green to-white"},
+  {id:"push-pull-legs-routine",name:"Push Pull Legs Routine",duration:"10 weeks",difficulty:"Advanced",weeklySessions:6,focus:"Split training",description:"A structured PPL routine for lifters who want more frequency and better recovery.",accent:"from-viva-cyan to-white"},
+  {id:"full-body-fitness-plan",name:"Full Body Fitness Plan",duration:"8 weeks",difficulty:"Intermediate",weeklySessions:3,focus:"Balanced fitness",description:"A full-body plan that blends strength, mobility, conditioning, and recovery.",accent:"from-viva-lime to-viva-cyan"}
+];

@@ -1,0 +1,2 @@
+import type { ReactNode } from "react";
+export default function ChartCard({title,description,children}:{title:string;description?:string;children:ReactNode}){return <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.055] p-6 backdrop-blur-xl"><div className="mb-6"><h3 className="text-xl font-black">{title}</h3>{description&&<p className="mt-2 text-sm leading-6 text-white/50">{description}</p>}</div><div className="h-[310px]">{children}</div></div>}

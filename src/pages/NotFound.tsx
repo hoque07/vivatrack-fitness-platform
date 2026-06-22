@@ -1,0 +1,3 @@
+import { Link } from "react-router-dom";
+import Layout from "../components/Layout";
+export default function NotFound(){return <Layout><section className="mx-auto flex min-h-[70vh] max-w-7xl flex-col items-center justify-center px-4 py-20 text-center lg:px-6"><p className="text-sm font-black uppercase tracking-[0.35em] text-viva-green">404</p><h1 className="mt-5 text-5xl font-black tracking-tight md:text-7xl">Page not found</h1><p className="mt-5 max-w-xl text-white/60">The page you are looking for does not exist in this VivaTrack demo.</p><Link to="/" className="mt-8 rounded-full bg-viva-green px-6 py-3 text-sm font-black text-viva-bg">Back to home</Link></section></Layout>}

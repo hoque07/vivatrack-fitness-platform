@@ -1,0 +1,2 @@
+import type { ReactNode } from "react";
+export default function DashboardCard({title,value,subtitle,children}:{title:string;value?:string;subtitle?:string;children?:ReactNode}){return <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.055] p-6 backdrop-blur-xl"><p className="text-sm font-semibold text-white/60">{title}</p>{value&&<p className="mt-3 text-4xl font-black">{value}</p>}{subtitle&&<p className="mt-2 text-sm text-white/45">{subtitle}</p>}{children&&<div className="mt-5">{children}</div>}</div>}
