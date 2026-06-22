@@ -1,4 +1,15 @@
 # Changelog
+## Version 3.0.0 - Interactive Programs and Pricing
+
+- Added functional Programs buttons.
+- Added program demo modal.
+- Added individual program details route.
+- Added active program selection using localStorage.
+- Added functional Pricing buttons.
+- Added pricing plan modal.
+- Added selected plan saving using localStorage.
+- Added safe demo checkout message.
+- Kept Version 2 as backup using Git tag `version-2`.
 ## Version 2.0.0 - Animated UI Release
 
 - Added animated background system.
