@@ -2,13 +2,305 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: dark; background:#061014; }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin:0; min-width:320px; background: radial-gradient(circle at 12% 5%, rgba(71,240,125,.18), transparent 30%), radial-gradient(circle at 88% 0%, rgba(52,217,255,.14), transparent 30%), #061014; color:white; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
-::selection { background: rgba(71,240,125,.35); }
-::-webkit-scrollbar { width:8px; height:8px; }
-::-webkit-scrollbar-thumb { background: rgba(71,240,125,.35); border-radius:999px; }
-::-webkit-scrollbar-track { background: rgba(255,255,255,.04); }
-.glass { border:1px solid rgba(255,255,255,.09); background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.035)); box-shadow:0 24px 80px rgba(0,0,0,.35); backdrop-filter:blur(18px); }
-.soft-grid { background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size:42px 42px; }
+:root {
+  color-scheme: dark;
+  background: #061014;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 12% 5%, rgba(71, 240, 125, 0.18), transparent 30%),
+    radial-gradient(circle at 88% 0%, rgba(52, 217, 255, 0.14), transparent 30%),
+    #061014;
+  color: white;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: rgba(71, 240, 125, 0.35);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(71, 240, 125, 0.35);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.glass {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.035)
+  );
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(18px);
+  animation: cardReveal 0.8s ease both;
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+.glass:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: rgba(71, 240, 125, 0.35);
+  box-shadow:
+    0 26px 90px rgba(0, 0, 0, 0.42),
+    0 0 42px rgba(71, 240, 125, 0.12);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.105),
+    rgba(255, 255, 255, 0.045)
+  );
+}
+
+.soft-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+.animated-grid {
+  animation: gridMove 22s linear infinite;
+}
+
+.page-enter {
+  animation: pageFadeUp 0.65s ease both;
+}
+
+section,
+header,
+footer {
+  animation: sectionReveal 0.75s ease both;
+}
+
+section:nth-of-type(2) {
+  animation-delay: 0.08s;
+}
+
+section:nth-of-type(3) {
+  animation-delay: 0.16s;
+}
+
+section:nth-of-type(4) {
+  animation-delay: 0.24s;
+}
+
+a,
+button {
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+a:hover,
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active,
+a:active {
+  transform: translateY(0) scale(0.98);
+}
+
+img,
+svg {
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.glass:hover svg,
+button:hover svg,
+a:hover svg {
+  transform: translateX(3px) scale(1.05);
+}
+
+.floating-orb {
+  animation: floatOrb 9s ease-in-out infinite;
+}
+
+.orbit-ring {
+  animation: rotateRing 28s linear infinite;
+}
+
+.orbit-ring-reverse {
+  animation: rotateRingReverse 36s linear infinite;
+}
+
+.particle-dot {
+  opacity: 0;
+  animation: particleFloat 7s ease-in-out infinite;
+}
+
+h1,
+h2 {
+  animation: titleReveal 0.8s ease both;
+}
+
+p {
+  animation: textReveal 0.75s ease both;
+}
+
+@keyframes pageFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes sectionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes titleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+    letter-spacing: -0.04em;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: inherit;
+  }
+}
+
+@keyframes textReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatOrb {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  35% {
+    transform: translate3d(26px, -34px, 0) scale(1.12);
+  }
+
+  70% {
+    transform: translate3d(-22px, 28px, 0) scale(0.94);
+  }
+}
+
+@keyframes rotateRing {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes rotateRingReverse {
+  from {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+@keyframes particleFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.7);
+  }
+
+  25% {
+    opacity: 0.8;
+  }
+
+  65% {
+    opacity: 0.45;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-90px) scale(1.1);
+  }
+}
+
+@keyframes gridMove {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 42px 42px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -1,6 +1,19 @@
 import type { ReactNode } from "react";
-import Navbar from "./Navbar";
+import AnimatedBackground from "./AnimatedBackground";
 import Footer from "./Footer";
+import Navbar from "./Navbar";
+
 export default function Layout({ children }: { children: ReactNode }) {
-  return <div className="min-h-screen bg-viva-radial text-white"><Navbar /><main>{children}</main><Footer /></div>;
+  return (
+    <div className="relative min-h-screen overflow-hidden text-white">
+      <AnimatedBackground />
+      <Navbar />
+
+      <main className="page-enter relative z-10">
+        {children}
+      </main>
+
+      <Footer />
+    </div>
+  );
 }
